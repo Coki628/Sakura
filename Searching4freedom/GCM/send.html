@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<title>GCM</title>
+
+	</head>
+	<body style="width:320px; margin:0 auto 0 auto;">	<!--中身の幅に合わせて幅調整して、中央揃え-->
+		<div style="text-align:left">					<!--親の幅に合わせて左寄せ-->
+			<h1 style="text-align:center">メッセージを一斉送信</h1>
+			<form action="sendGCM2.php" method="post">
+				<textarea name="message" rows="4" cols="40" maxlength="80" onkeyup="ShowLength(value);"></textarea><br/>
+				<input type = "submit" value ="送信">
+				<span id="inputlength">文字数 0</span>
+				<script>
+				   function ShowLength(str) {
+				      document.getElementById("inputlength").innerHTML ="文字数 " + str.length;
+				      if(str.length >= 80) {
+				      	document.getElementById("inputlength").innerHTML ="文字数 80 これ以上入力できません";
+				      }
+				   }
+				</script>
+			</form>
+			<h1 style="text-align:center">メッセージを個別送信</h1>
+			<form action="sendGCM.php" method="post">
+				id: <input type="text" name="id" size="4"><br/>
+				<textarea name="message" rows="4" cols="40" maxlength="80" onkeyup="ShowLength2(value);"></textarea><br/>
+				<input type = "submit" value ="送信">
+				<span id="inputlength2">文字数 0</span>
+				<script>
+				   function ShowLength2(str) {
+				      document.getElementById("inputlength2").innerHTML ="文字数 " + str.length;
+				      if(str.length >= 80) {
+				      	document.getElementById("inputlength2").innerHTML ="文字数 80 これ以上入力できません";
+				      }
+				   }
+				</script>				
+			</form>
+			<br>
+		</div>
+		<div style="text-align:center">
+			<input type="button" onclick="location.href='javascript:history.back();'" value="戻る">
+			<input type="button" onclick="location.href='index.html'" value="HOME">
+		</div>
+	</body>
+</html>
